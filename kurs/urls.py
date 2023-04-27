@@ -19,7 +19,7 @@ from . import views
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path('стаття', views.стаття, name="стаття"),
+    path('стаття/<int:article_id>/', views.стаття, name="стаття"),
     path('реєстрація', views.реєстрація, name="реєстрація"),
     path('вхід', views.вхід, name="вхід"),
     path('вихід', views.вихід, name="вихід"),

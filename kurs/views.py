@@ -1,15 +1,18 @@
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from .forms import RegistrationForm
+from .models import Article
 
 # Create your views here.
 def index(request):
-    return render(request, "kursova.html")
+    articles = Article.objects.all()
+    return render(request, "kursova.html", {'articles': articles})
 
-def стаття(request):
-    return render(request, "article.html")
+def стаття(request, article_id):
+    article = get_object_or_404(Article, id=article_id)
+    return render(request, 'article.html', {'article': article})
 
 def реєстрація(request):
     if request.method == 'POST':

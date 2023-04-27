@@ -1,12 +1,14 @@
 {%load static%}
 <html>
     <head>
+        <html lang="uk">
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf8"/>
-		<title>kursova</title>
+        <title>Про нас</title>
 	    <link rel="stylesheet" type="text/css" href="{% static 'kursova.css' %}"/> 
 	</head>
     <body>
         <div id="container">
+            
             <div id="header">
                 <ul class="nav">
                     <li><a href="{% url 'особистий_кабінет' %}">Особистий кабінет</a></li>
@@ -14,11 +16,17 @@
                     <li><a href="{% url 'про_нас' %}">Про нас</a></li>
                 </ul>
             </div>
+
+            <div id="content">
+
+            </div>
+
             <div id="footer">
                 Сайт розробив: <br>
                 Студен групи ПР-3-1 <br>
                 Солярчук Іван <br>
-             </div>
-             </div>
+            </div>
+
+        </div>
     </body>
 </html>

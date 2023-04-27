@@ -1,12 +1,14 @@
 {%load static%}
 <html>
     <head>
+        <html lang="uk">
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf8"/>
-		<title>kursova</title>
+		<title>Вхід</title>
 	    <link rel="stylesheet" type="text/css" href="{% static 'kursova.css' %}"/> 
 	</head>
     <body>
         <div id="container">
+
             <div id="header">
                 <ul class="nav">
                     <li><a href="{% url 'особистий_кабінет' %}">Особистий кабінет</a></li>
@@ -14,23 +16,28 @@
                     <li><a href="{% url 'про_нас' %}">Про нас</a></li>
                 </ul>
             </div>
-            {% block body %}
-            {% if message %}
-            <div>{{message}}</div>
-            {% endif %}
-            <form action="{% url 'вхід'%}" method="post">
-            {% csrf_token %}
-            <input type="text" name="username" placeholder="Nickname" minlength="3" maxlength="32">
-            <input type="password" name="password" minlength="8" maxlength="16" placeholder="Password">
-            <input type="submit" name="submit">
-            <a href="{%url 'реєстрація' %}"> Реєстрація </a>
-            </form>
-            {% endblock %}
-        </div>
-        <div id="footer">
-           Сайт розробив: <br>
-           Студен групи ПР-3-1 <br>
-           Солярчук Іван <br>
+
+            <div id="content">
+                {% block body %}
+                {% if message %}
+                    <div>{{message}}</div>
+                {% endif %}
+                <form action="{% url 'вхід'%}" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="username" placeholder="Nickname" minlength="3" maxlength="32">
+                    <input type="password" name="password" minlength="8" maxlength="16" placeholder="Password">
+                    <input type="submit" name="submit">
+                    <a href="{%url 'реєстрація' %}"> Реєстрація </a>
+                </form>
+                {% endblock %}
+            </div>
+
+            <div id="footer">
+                Сайт розробив: <br>
+                Студен групи ПР-3-1 <br>
+                Солярчук Іван <br>
+            </div>
+            
         </div>
     </body>
 </html>
