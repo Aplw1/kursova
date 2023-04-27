@@ -1,0 +1,30 @@
+{%load static%}
+<html>
+    <head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf8"/>
+		<title>kursova</title>
+	    <link rel="stylesheet" type="text/css" href="{% static 'kursova.css' %}"/> 
+	</head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <ul class="nav">
+                    <li><a href="{% url 'особистий_кабінет' %}">Особистий кабінет</a></li>
+                    <li><a href="{% url 'index' %}">Головна</a></li>
+                    <li><a href="{% url 'про_нас' %}">Про нас</a></li>
+                </ul>
+            </div>
+            {% block body %}
+                <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Зареєструватися</button>
+            {% endblock %}
+            <div id="footer">
+                Сайт розробив: <br>
+                Студен групи ПР-3-1 <br>
+                Солярчук Іван <br>
+             </div>
+        </div>
+    </body>
+</html>

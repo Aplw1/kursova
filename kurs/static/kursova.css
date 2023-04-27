@@ -1,0 +1,10 @@
+#container{
+    display: flex;
+    background-color: darkblue;
+    width: auto;
+    height: 100%;
+    color: darkgray;
+    font-size: 100px;
+    flex-direction: column;
+    align-items: center;
+}
