@@ -1,35 +1,41 @@
-{%load static%}
+{% load static %}
 <html>
     <head>
         <html lang="uk">
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf8"/>
 		<title>Особистий кабінет</title>
-	    <link rel="stylesheet" type="text/css" href="{% static 'kursova.css' %}"/> 
+	    <link rel="stylesheet" type="text/css" href="{% static 'CSS/kursova.css' %}"/> 
 	</head>
     <body>
         <div id="container">
 
             <div id="header">
+                <p class="title">Kursova</p>
                 <ul class="nav">
-                    <li><a href="{% url 'особистий_кабінет' %}">Особистий кабінет</a></li>
-                    <li><a href="{% url 'index' %}">Головна</a></li>
-                    <li><a href="{% url 'про_нас' %}">Про нас</a></li>
+                    <li><a href="{% url 'особистий_кабінет' %}" class="nav_url">Особистий кабінет</a></li>
+                    <li><a href="{% url 'index' %}" class="nav_url">Головна</a></li>
+                    <li><a href="{% url 'про_нас' %}" class="nav_url">Про нас</a></li>
                 </ul>
             </div>
 
             <div id="content">
-                <ul>
+                <div class="avatar">
+                    <img src="{% static 'avatar.png' %}" alt="Тут мало бути фото" class="avatar"><br>
+                    <a href="{% url 'вихід' %}" id="logout">Вийти</a>
+                </div>
+                <ul class="am">
                     <li>Нікнейм: {{request.user.username}}</li>
                     <li>E-mail: {{request.user.email}}</li>
                 </ul>
-                <a href="{% url 'вихід' %}">Вийти</a>
             </div>
 
             <div id="footer">
+                <p class="title1">
                 Сайт розробив: <br>
                 Студен групи ПР-3-1 <br>
                 Солярчук Іван <br>
-             </div>
+                </p>
+            </div>
 
         </div>
     </body>

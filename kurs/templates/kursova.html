@@ -1,35 +1,38 @@
-{%load static%}
+{% load static %}
 <html>
     <head>
         <html lang="uk">
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf8"/>
 		<title>Курсова</title>
-	    <link rel="stylesheet" type="text/css" href="{% static 'kursova.css' %}"/> 
+	    <link rel="stylesheet" type="text/css" href="{% static 'CSS/kursova.css' %}"/> 
 	</head>
     <body>
         <div id="container">
 
             <div id="header">
+                <p class="title">Kursova</p>
                 <ul class="nav">
-                    <li><a href="{% url 'особистий_кабінет' %}">Особистий кабінет</a></li>
-                    <li><a href="{% url 'index' %}">Головна</a></li>
-                    <li><a href="{% url 'про_нас' %}">Про нас</a></li>
+                    <li><a href="{% url 'особистий_кабінет' %}" class="nav_url">Особистий кабінет</a></li>
+                    <li><a href="{% url 'index' %}" class="nav_url">Головна</a></li>
+                    <li><a href="{% url 'про_нас' %}" class="nav_url">Про нас</a></li>
                 </ul>
             </div>
 
-            <div id="content">
-                <ul>
+            <div id="content_k">
+                <ul class="nav_a">
                     {% for article in articles %}
-                    <li><a href="{% url 'стаття' article_id=article.id %}">{{ article.title }}    Автор:{{ article.author }}   {{article.created_date}}</a></li>
+                    <li><a href="{% url 'стаття' article_id=article.id %}">{{ article.title }}    Автор:{{ article.author }}   {{article.created_date}}</a></li><br>
                     {% endfor %}
                 </ul>
             </div>
 
             <div id="footer">
+                <p class="title1">
                 Сайт розробив: <br>
                 Студен групи ПР-3-1 <br>
                 Солярчук Іван <br>
-             </div>
+                </p>
+            </div>
 
         </div>
     </body>
